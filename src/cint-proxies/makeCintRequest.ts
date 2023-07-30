@@ -24,12 +24,10 @@ const makeCintRequest = async (urlPath: string, payload, timeout: number = 5) =>
     return resp.json()
   } else {
     // handle error
-    if (resp.status === 422) {
-      const errorResp = await resp.json()
-      if (errorResp?.errors?.length)
-        throw new CintProxyError(errorResp, resp.status)
-    }
-    throw new Error(`Request failed with response code ${resp.status}`)
+    const errorResp = await resp.json()
+    if (errorResp?.errors?.length)
+      throw new CintProxyError(errorResp, resp.status)
+    throw new Error(`Upstream request failed with response code ${resp.status}`)
   }
 }
 
