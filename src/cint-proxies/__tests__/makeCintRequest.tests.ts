@@ -3,7 +3,7 @@ jest.mock('node-fetch', () => mockFetch)
 
 import makeRequest from '../makeCintRequest';
 
-mockFetch.mockImplementation(() => ({ json: () => ({ feasibility: 0})}))
+mockFetch.mockImplementation(() => ({ json: () => ({ feasibility: 0}), ok: true}))
 
 describe('makeRequests tests', () => {
   beforeEach(() => mockFetch.mockClear());
