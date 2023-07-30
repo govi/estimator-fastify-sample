@@ -1,9 +1,15 @@
 # Setup instructions
 
+Setup
 ```
-> yarn install
+yarn install
 ```
 
+To run the service
 ```
-> yarn start
+yarn start
+```
+To run the tests
+```
+yarn jest
 ```
