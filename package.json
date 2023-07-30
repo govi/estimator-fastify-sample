@@ -16,6 +16,8 @@
     "typescript": "^5.1.6"
   },
   "dependencies": {
-    "fastify": "^4.21.0"
+    "config": "^3.3.9",
+    "fastify": "^4.21.0",
+    "node-fetch": "^3.3.2"
   }
 }
