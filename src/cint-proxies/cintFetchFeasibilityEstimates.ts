@@ -1,4 +1,4 @@
-import makeRequest from './makeRequest'
+import makeRequest from './makeCintRequest'
 
 const _createFeasibilityPayload = (limit: number, lengthOfInterview: number, fieldPeriod: number) => {
   return {
@@ -23,16 +23,12 @@ const _createFeasibilityPayload = (limit: number, lengthOfInterview: number, fie
     }
 }
 
-interface FeasibilityEstimateRequest {
-  limit: number
-  lengthOfInterview: number
-  fieldPeriod: number
-}
 
-const fetchFeasibilityEstimates = async (request: FeasibilityEstimateRequest): Promise<number> => {
-  const payload = _createFeasibilityPayload(request.limit, request.lengthOfInterview, request.fieldPeriod)
+const cintFetchFeasibilityEstimates = async (limit: number, lengthOfInterview: number, fieldPeriod: number): Promise<number> => {
+  const payload = _createFeasibilityPayload(limit, lengthOfInterview, fieldPeriod)
   const data = await makeRequest('ordering/FeasibilityEstimates', payload)
+  console.log('cintFetchFeasibilityEstimates', data)
   return data?.['feasibility']
 }
 
-export default fetchFeasibilityEstimates
+export default cintFetchFeasibilityEstimates

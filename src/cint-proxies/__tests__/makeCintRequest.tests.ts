@@ -1,7 +1,7 @@
 const mockFetch = jest.fn()
 jest.mock('node-fetch', () => mockFetch)
 
-import makeRequest from '../makeRequest';
+import makeRequest from '../makeCintRequest';
 
 mockFetch.mockImplementation(() => ({ json: () => ({ feasibility: 0})}))
 
